@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    /* Gradient from white (top) to light blue (bottom) */
+    background: linear-gradient(to bottom, #ffffff, #BDE8F5);
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* make sure it covers full viewport */
+}
+
+        .container {
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(15, 40, 84, 0.2); /* subtle shadow using dark blue */
+        }
+
+        h2 {
+            text-align: center;
+            color: #0F2854; /* dark navy */
+            margin-bottom: 25px;
+        }
+
+        input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0; /* vertical spacing is fine */
+    border-radius: 6px;
+    border: 1px solid #4988C4; /* soft blue border */
+    background-color: #f0f8ff; /* very light blue for inputs */
+    color: #0F2854;
+    font-size: 14px;
+    box-sizing: border-box; /* ensures padding and border are included in width */
+}
+
+
+        input:focus {
+            border-color: #1C4D8D; /* focus color */
+            outline: none;
+            box-shadow: 0 0 5px rgba(28, 77, 141, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1C4D8D; /* medium blue */
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0F2854; /* dark navy on hover */
+        }
+
+        .error {
+            color: #FF4D4D; /* subtle red for errors */
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #4988C4;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a:hover {
+            color: #1C4D8D;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button>Login</button>
+        </form>
+        <p class="error" th:text="${error}"></p>
+        <a href="/register">New User? Register</a>
+    </div>
+</body>
+</html>
